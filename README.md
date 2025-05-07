@@ -83,9 +83,7 @@ This notebook predicts churn and generates a human-friendly summary using Gemini
 
   * Highest churn risk among customers on **month-to-month contracts** with **fiber optic internet** and **no support services**
 
----
-
-### 📉 2. Actionable Business Recommendations
+### 2. Actionable Business Recommendations
 
 Most of these recommendations will be **custom created via Gemini** after customer analysis, enabling agents to respond with **personalized retention strategies** in real time. However, here are some general trends based on our model insights:
 
@@ -94,9 +92,7 @@ Most of these recommendations will be **custom created via Gemini** after custom
 * Offer **support bundles** to reduce churn risk linked to lack of TechSupport or OnlineSecurity
 * Estimated cost of targeting the **top 20% at-risk customers** is recoverable within **6–8 months** from retained revenue
 
----
-
-### 📈 3. Business Strategy
+### 3. Business Strategy
 
 * Deploy support co-pilot tool to agents via web interface or internal dashboard
 * Integrate LLM-generated insights with CRM systems to prep agents pre-call
