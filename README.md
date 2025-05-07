@@ -97,6 +97,8 @@ Highest churn risk among customers on month-to-month contracts with fiber optic 
 
 ### 2. Actionable Business Recommendations
 
+**Actionable insights are generated for each customer — custom-made for their situation. These are just general trends across the dataset:**
+
 * Target month-to-month contract customers with loyalty incentives
 * Proactively contact users with high complaint frequency or poor sentiment
 * Offer support bundles to reduce churn risk linked to lack of TechSupport or OnlineSecurity
