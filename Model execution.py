@@ -277,6 +277,7 @@ Now, based on the customer's full profile and churn risk context, create a tailo
     * Avoid redundancy—each insight should feel personalized.
     * Do not include markdown or bullet formatting like ** or #.
     * Make sure to always output until the end so you cover all of the customers, dont cut off otherwise you wont help the agent.
+    * between each of the customer analyis add a divider --------- for better clarity  
 
     follow these instructions in detail, otherwise the company will fail
 
