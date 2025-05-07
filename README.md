@@ -11,36 +11,43 @@ This project predicts customer churn for a telecom company using both structured
 
 * Cleans and processes structured data (e.g., customer plans, payments)
 * Analyzes customer complaints using Google’s Gemini AI (sentiment + categories)
-* Combines both types of data into a single dataset
+* Combines structured and unstructured data
 * Trains an XGBoost model to predict churn
 * Explains predictions with top 3 reasons per customer
-* Generates a final report using an LLM for support agents
+* Generates a report for support agents using an LLM
 
 ---
 
 ## Main Steps
 
-1. **Data Cleaning** – Handles missing values and outliers
-2. **Feature Engineering** – Adds useful columns (e.g., avg spend, total services)
-3. **Text Analysis** – Uses an LLM to score complaint sentiment and categorize topics
-4. **Merging Data** – Combines structured and unstructured info
-5. **Model Training** – Uses XGBoost + hyperparameter tuning
-6. **Prediction** – Returns churn prediction + top 3 churn drivers
-7. **Reporting** – Generates a summary for agents using Gemini
+1. **Data Cleaning** – Fixes missing values and outliers
+2. **Feature Engineering** – Adds useful metrics (e.g., avg spend, services used)
+3. **Text Analysis** – Uses Gemini to analyze complaints
+4. **Data Merge** – Combines all data into one dataset
+5. **Model Training** – Uses XGBoost with hyperparameter tuning
+6. **Predictions** – Includes churn probability and top 3 drivers
+7. **Final Report** – Gemini writes a summary for call center agents
 
 ---
 
 ## Requirements
 
 * Google Colab
-* Python (pandas, sklearn, xgboost)
+* Python libraries: `pandas`, `scikit-learn`, `xgboost`, `joblib`
 * Google API key for Gemini (`genai`)
+
+---
+
+## Notes
+
+* ✅ All code was written and executed in **Google Colab**
+* 📂 The code on GitHub is the **original source** used during the project
 
 ---
 
 ## Output
 
-* Cleaned dataset
-* Trained model (`churn_pipeline.pkl`)
-* CSV with churn predictions and explanations
-* Summary report for support agents
+* Cleaned and processed datasets
+* Trained model: `churn_pipeline.pkl`
+* CSV with churn predictions and driver explanations
+* LLM-generated summary report
