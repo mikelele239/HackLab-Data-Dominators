@@ -75,6 +75,11 @@ This notebook predicts churn and generates a human-friendly summary using Gemini
 
 **Model Used:** XGBoost (with SHAP-style explanations via `predict_contribs=True`)
 
+We chose XGBoost for its strong performance on structured data, built-in support for explainability, and efficient training. Unlike deep learning or reinforcement learning, it works well with small to medium-sized tabular datasets and allows real-time predictions with low latency—ideal for live support use cases.
+
+Why not deep learning or GenAI for churn classification?
+While we used Gemini (LLM) for interpreting unstructured complaints, classical ML outperforms deep learning on structured churn data due to better interpretability and lower data/compute needs.
+
 **Feature Engineering:**
 
 * Tenure buckets
