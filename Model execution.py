@@ -266,9 +266,9 @@ Recommended Call Actions:
 * Suggest 1–2 personalized actions the agent should take to reduce churn risk. Use available information like tenure, support history, service type, etc.
 
 
-Call script: 
+Call script:
 
-Now, based on the customer's full profile and churn risk context, create a tailored call script for the agent. Assume the customer reached out and you are already in the middle of the conversation. Be warm, solution-oriented, and specific. Acknowledge their situation, show empathy, and provide immediate suggestions based on the generated call actions, not questions (e.g., plan review, discount, new features, service upgrades, loyalty perks, etc.). Make the customer feel heard and supported and tell them what you can do for them. If you want to ask questions only ask yes/no ones.
+Now, based on the customer's full profile and churn risk context, create a tailored call script for the agent. Assume the customer reached out and you are already in the middle of the conversation. Be warm, solution-oriented, and specific. Acknowledge their situation, show empathy, and provide immediate suggestions based on the generated call actions, not questions (e.g., plan review, discount, new features, service upgrades, loyalty perks, etc.). Make the customer feel heard and supported and tell them what you can do for them. Never ask questions only tell what you can do for them at the moment.
 
 ---
 
