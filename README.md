@@ -44,7 +44,3 @@ This project predicts customer churn for a telecom company using both structured
 * Trained model (`churn_pipeline.pkl`)
 * CSV with churn predictions and explanations
 * Summary report for support agents
-
----
-
-Let me know if you want this exported as a file or formatted for uploading directly to GitHub.
