@@ -9,17 +9,16 @@ This project predicts customer churn for a telecom company using both structured
 ## 🚀 What the Project Does
 
 * Cleans and processes structured customer data
-* Analyzes complaint text using **Gemini AI** (sentiment & topic classification)
+* Analyzes complaint text using Gemini AI (sentiment & topic classification)
 * Trains an XGBoost model to predict churn
 * Explains predictions with the top 3 churn drivers per customer
-* Generates **LLM-powered summaries** tailored for customer support agents on live calls
+* Generates LLM-powered summaries tailored for customer support agents on live calls
 
 ---
 
 ## 💼 Ideal Use Case
 
-This tool is built for **customer support teams**. It functions as a **real-time co-pilot**:
-📞 While speaking with customers, agents can quickly view:
+This tool is built for customer support teams. It functions as a real-time co-pilot: 📲 While speaking with customers, agents can quickly view:
 
 * Churn risk
 * Top 3 drivers of dissatisfaction
@@ -29,25 +28,30 @@ This tool is built for **customer support teams**. It functions as a **real-time
 
 ## 📘️ USER GUIDE: Churn Prediction Co-Pilot (Google Colab)
 
-### ▶️ [Run the Notebook in Colab](https://colab.research.google.com/drive/1PonU3l5-CeEh3dUHJHlJ-LWFWFKF28oz?usp=sharing)
+### ▶️ Run the Notebook in Colab
 
 This notebook predicts churn and generates a human-friendly summary using Gemini 2.0.
+**[Try it here →](https://colab.research.google.com/drive/1PonU3l5-CeEh3dUHJHlJ-LWFWFKF28oz?usp=sharing)**
 
-### 📁 Files Required
+---
 
-| File Name            | Description                                       |
-| -------------------- | ------------------------------------------------- |
-| `Model execution.py` | Main script to execute churn prediction           |
-| `churn_pipeline.pkl` | Trained machine learning pipeline                 |
-| `Data sample.csv`    | Sample input file with customer data (no `Churn`) |
+## 📁 Files Required
 
-### ⚙️ How to Use
+| File Name           | Description                                     |
+| ------------------- | ----------------------------------------------- |
+| Model execution.py  | Main script to execute churn prediction         |
+| churn\_pipeline.pkl | Trained machine learning pipeline               |
+| Data sample.csv     | Sample input file with customer data (no Churn) |
+
+---
+
+## ⚙️ How to Use
 
 1. Open the Colab notebook using the link above
 2. Upload:
 
-   * Your `.pkl` pipeline file
-   * Your customer `.csv` file (excluding the `Churn` column)
+   * Your .pkl pipeline file
+   * Your customer .csv file (excluding the Churn column)
 3. The notebook:
 
    * Predicts churn and churn probability
@@ -55,12 +59,13 @@ This notebook predicts churn and generates a human-friendly summary using Gemini
    * Outputs a downloadable CSV
    * Displays a Gemini-powered summary for support agents
 
-### 🧠 Output
+---
+
+## 🧠 Output
 
 * `churn_predictions_with_drivers.csv` — detailed predictions per customer
 * Gemini summary — easy-to-read insights and suggested responses for agents
-
-> No setup needed — the Colab includes a valid Gemini API key.
+* No setup needed — the Colab includes a valid Gemini API key
 
 ---
 
@@ -68,29 +73,29 @@ This notebook predicts churn and generates a human-friendly summary using Gemini
 
 ### 1. Model Documentation
 
-* **Model Used:** XGBoost (with SHAP-style explanations via `predict_contribs=True`)
-* **Feature Engineering:**
+**Model Used:** XGBoost (with SHAP-style explanations via `predict_contribs=True`)
 
-  * Tenure buckets
-  * Average monthly spend, auto-pay detection, service counts
-  * Sentiment score, complaint volume, dominant complaint category
-* **Validation Metrics:**
+**Feature Engineering:**
 
-  * Accuracy: **0.8133**
-  * ROC-AUC: **0.8638**
-  * F1-score: macro **0.74**, weighted **0.80**
-* **Segmentation Insight:**
+* Tenure buckets
+* Average monthly spend, auto-pay detection, service counts
+* Sentiment score, complaint volume, dominant complaint category
 
-  * Highest churn risk among customers on **month-to-month contracts** with **fiber optic internet** and **no support services**
+**Validation Metrics:**
+
+* Accuracy: 0.8133
+* ROC-AUC: 0.8638
+* F1-score: macro 0.74, weighted 0.80
+
+**Segmentation Insight:**
+Highest churn risk among customers on month-to-month contracts with fiber optic internet and no support services
 
 ### 2. Actionable Business Recommendations
 
-Most of these recommendations will be **custom created via Gemini** after customer analysis, enabling agents to respond with **personalized retention strategies** in real time. However, here are some general trends based on our model insights:
-
-* Target **month-to-month contract** customers with loyalty incentives
-* Proactively contact users with **high complaint frequency or poor sentiment**
-* Offer **support bundles** to reduce churn risk linked to lack of TechSupport or OnlineSecurity
-* Estimated cost of targeting the **top 20% at-risk customers** is recoverable within **6–8 months** from retained revenue
+* Target month-to-month contract customers with loyalty incentives
+* Proactively contact users with high complaint frequency or poor sentiment
+* Offer support bundles to reduce churn risk linked to lack of TechSupport or OnlineSecurity
+* Estimated cost of targeting the top 20% at-risk customers is recoverable within 6–8 months from retained revenue
 
 ### 3. Business Strategy
 
@@ -100,11 +105,47 @@ Most of these recommendations will be **custom created via Gemini** after custom
 
 ---
 
+## 🧪 Methodology
+
+**[See the full training pipeline →](https://colab.research.google.com/drive/1SULtN6LD8MvFjLFeF5ATwcwq5iWjM4GO?usp=sharing)**
+
+### 1. Data Preparation
+
+* Structured CSV cleaned for missing values, outliers capped using IQR, binary fields coerced to categorical.
+* Features engineered including average monthly spend, tenure buckets, number of services, auto-pay flag, and more.
+* Unstructured Excel file of customer complaints enriched with Gemini-based sentiment scoring (1–5) and topic classification.
+
+### 2. Data Fusion
+
+* Aggregated unstructured insights by customer: average sentiment, complaint count, and most frequent complaint topic.
+* Merged structured and enriched unstructured features into one training dataset.
+
+### 3. Modeling
+
+* Train/test split (80/20), pipeline preprocessing with scaling and one-hot encoding.
+* XGBoost classifier with randomized hyperparameter search (30 iterations, 3-fold CV).
+* Evaluation using accuracy, ROC-AUC, F1-score, and per-class performance.
+
+### 4. Explainability
+
+* Top-3 churn drivers extracted per customer using SHAP-like feature contributions (`pred_contribs=True`).
+
+### 5. LLM Summary Generation
+
+* For all customers flagged at high churn risk, a Gemini-powered summary generates:
+
+  * Risk overview
+  * Top reasons for churn
+  * Agent-ready retention strategies
+
+---
+
 ## 🛠️ Model Training Results
 
-* ✅ **Rows processed**: 7,043
+* ✅ Rows processed: 7,043
 * ✔️ Train/Test Split: 80/20
-* 🏅 **Best XGBoost Params**:
+
+### 🏅 Best XGBoost Params:
 
 ```python
 {subsample: 0.85,
@@ -117,8 +158,8 @@ Most of these recommendations will be **custom created via Gemini** after custom
 
 ### ✅ Performance Metrics
 
-* **Accuracy**: 0.8133
-* **ROC-AUC**: 0.8638
+* Accuracy: 0.8133
+* ROC-AUC: 0.8638
 
 **Classification Report:**
 
@@ -144,24 +185,23 @@ weighted avg       0.80      0.81      0.80      1409
 
 Most impactful features driving churn prediction:
 
-* `Contract_Month-to-month`
-* `InternetService_Fiber optic`
-* `TechSupport_No`
-* `OnlineSecurity_No`
-* `InternetService_DSL`
-* `Contract_Two year`
-* `tenure_bucket_0-12 months`
-* `avg_sentiment`
-* `tenure_bucket_49+ months`
-* `PaymentMethod_Electronic check`
-
-...and more
+* Contract\_Month-to-month
+* InternetService\_Fiber optic
+* TechSupport\_No
+* OnlineSecurity\_No
+* InternetService\_DSL
+* Contract\_Two year
+* tenure\_bucket\_0-12 months
+* avg\_sentiment
+* tenure\_bucket\_49+ months
+* PaymentMethod\_Electronic check
+* ...and more
 
 ---
 
 ## 📊 ROC Curve
 
-The model achieves an **AUC of 0.86**, indicating strong predictive performance in distinguishing churn vs. non-churn.
+The model achieves an AUC of 0.86, indicating strong predictive performance in distinguishing churn vs. non-churn.
 
 ---
 
@@ -171,5 +211,4 @@ The model achieves an **AUC of 0.86**, indicating strong predictive performance 
 * Trained model: `churn_pipeline.pkl`
 * Churn predictions with driver attribution
 * LLM-generated report for customer support
-
-> Built with Google Colab, XGBoost, and Gemini 2.0
+* Built with Google Colab, XGBoost, and Gemini 2.0
