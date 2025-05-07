@@ -30,7 +30,7 @@ This tool is built for customer support teams. It functions as a real-time co-pi
 
 ### ▶️ Run the Notebook in Colab
 
-This notebook predicts churn and generates a human-friendly summary using Gemini 2.0.
+This notebook predicts churn and generates a human-friendly summary using Gemini 2.5.
 **[Try it here →](https://colab.research.google.com/drive/1PonU3l5-CeEh3dUHJHlJ-LWFWFKF28oz?usp=sharing)**
 
 ---
@@ -211,4 +211,4 @@ The model achieves an AUC of 0.86, indicating strong predictive performance in d
 * Trained model: `churn_pipeline.pkl`
 * Churn predictions with driver attribution
 * LLM-generated report for customer support
-* Built with Google Colab, XGBoost, and Gemini 2.0
+* Built with Google Colab, XGBoost, and Gemini 2.5
