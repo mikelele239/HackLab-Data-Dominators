@@ -33,7 +33,7 @@ This tool is built for **customer support teams**. It functions as a **real-time
 
 This notebook predicts churn and generates a human-friendly summary using Gemini 2.0.
 
-### 🧹 Files Required
+### 📁 Files Required
 
 | File Name            | Description                                       |
 | -------------------- | ------------------------------------------------- |
@@ -60,7 +60,47 @@ This notebook predicts churn and generates a human-friendly summary using Gemini
 * `churn_predictions_with_drivers.csv` — detailed predictions per customer
 * Gemini summary — easy-to-read insights and suggested responses for agents
 
-> 📅 No setup needed — the Colab includes a valid Gemini API key.
+> No setup needed — the Colab includes a valid Gemini API key.
+
+---
+
+## ✅ Hacklab 2025 Deliverables
+
+### 1. Model Documentation
+
+* **Model Used:** XGBoost (with SHAP-style explanations via `predict_contribs=True`)
+* **Feature Engineering:**
+
+  * Tenure buckets
+  * Average monthly spend, auto-pay detection, service counts
+  * Sentiment score, complaint volume, dominant complaint category
+* **Validation Metrics:**
+
+  * Accuracy: **0.8133**
+  * ROC-AUC: **0.8638**
+  * F1-score: macro **0.74**, weighted **0.80**
+* **Segmentation Insight:**
+
+  * Highest churn risk among customers on **month-to-month contracts** with **fiber optic internet** and **no support services**
+
+---
+
+### 📉 2. Actionable Business Recommendations
+
+Most of these recommendations will be **custom created via Gemini** after customer analysis, enabling agents to respond with **personalized retention strategies** in real time. However, here are some general trends based on our model insights:
+
+* Target **month-to-month contract** customers with loyalty incentives
+* Proactively contact users with **high complaint frequency or poor sentiment**
+* Offer **support bundles** to reduce churn risk linked to lack of TechSupport or OnlineSecurity
+* Estimated cost of targeting the **top 20% at-risk customers** is recoverable within **6–8 months** from retained revenue
+
+---
+
+### 📈 3. Business Strategy
+
+* Deploy support co-pilot tool to agents via web interface or internal dashboard
+* Integrate LLM-generated insights with CRM systems to prep agents pre-call
+* Long term: Fine-tune sentiment model on internal complaint history for cost efficiency
 
 ---
 
